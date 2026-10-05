@@ -17,7 +17,10 @@ void heapify(int arr[], int n, int rootIndex){
     if(right<n && arr[right]>arr[root])
         root=right;
 
-    swap(arr[rootIndex],arr[root]);
+    if(root!=rootIndex){
+        swap(arr[rootIndex],arr[root]);
+        heapify(arr,n,root);
+    }
 }
 
 void heapSort(int arr[], int n){
